@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', '\App\Http\Controllers\InicioController@index');
+
+// Rutas de pruebas
+
+/*Route::get('vista', function () {
+   return view('vista1', ['nombre'=>'Manuel']);
+});*/
+
+// Fachadas de vistas
+
+/*if (View::exists('vista2')) {
+    Route::get('/', function () {
+        return view('vista2');
+    });
+} else {
+    Route::get('/', function () {
+        return 'La vista no existe';
+    });
+}*/
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
