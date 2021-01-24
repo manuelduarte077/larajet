@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\View;
 |
 */
 
-Route::get('/', '\App\Http\Controllers\InicioController@index');
+//Route::get('/', '\App\Http\Controllers\InicioController');
 
 // Rutas de pruebas
 
@@ -33,6 +33,9 @@ Route::get('/', '\App\Http\Controllers\InicioController@index');
         return 'La vista no existe';
     });
 }*/
+
+
+Route::resource('/', '\App\Http\Controllers\PersonaController');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
