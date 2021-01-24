@@ -18,9 +18,12 @@ use Illuminate\Support\Facades\View;
 
 // Rutas de pruebas
 
-/*Route::get('vista', function () {
-   return view('vista1', ['nombre'=>'Manuel']);
-});*/
+Route::get('/', function () {
+   return view('auth.login');
+});
+
+
+Route::resource('articulos', '\App\Http\Controllers\ArticuloController');
 
 // Fachadas de vistas
 
@@ -35,9 +38,9 @@ use Illuminate\Support\Facades\View;
 }*/
 
 
-Route::resource('/', '\App\Http\Controllers\PersonaController');
+//Route::resource('/', '\App\Http\Controllers\PersonaController');
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
+    return view('dash.index');
+})->name('dash');
